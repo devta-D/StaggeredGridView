@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * author @Divyanshu Tayal
@@ -18,7 +19,7 @@ import java.util.LinkedHashMap;
 public class StaggeredGridView extends LinearLayout {
 
     private RecyclerView mStaggeredRecyclerView;
-    private LinkedHashMap<String, Uri> savedMap;
+    private List<StaggeredData> savedData;
 
     private int viewMinHeight, viewMaxHeight, viewMaxWidth;
 
@@ -65,18 +66,18 @@ public class StaggeredGridView extends LinearLayout {
         invalidate();
     }
 
-    public void setData(LinkedHashMap<String, Uri> dataMap){
+    public void setData(List<StaggeredData> staggeredData){
         if(!isInEditMode() && mStaggeredRecyclerView!=null)
             mStaggeredRecyclerView.setAdapter(new StaggeredViewAdapter(
-                    dataMap, viewMinHeight, viewMaxHeight, viewMaxWidth));
-        this.savedMap = dataMap;
+                    staggeredData, viewMinHeight, viewMaxHeight, viewMaxWidth));
+        this.savedData = staggeredData;
     }
 
     @Override
     public void invalidate() {
         super.invalidate();
         mStaggeredRecyclerView.setAdapter(new StaggeredViewAdapter(
-                savedMap, viewMinHeight, viewMaxHeight, viewMaxWidth));
+                savedData, viewMinHeight, viewMaxHeight, viewMaxWidth));
     }
 
 }

@@ -3,7 +3,7 @@ package devta.staggeredview;
 /**
  * author @Divyanshu Tayal
  */
-public class StaggeredDataModel {
+class StaggeredDataModel {
 
     private ViewDataModel top, bottom;
 

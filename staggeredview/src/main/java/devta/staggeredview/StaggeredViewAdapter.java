@@ -47,29 +47,26 @@ class StaggeredViewAdapter extends RecyclerView.Adapter<StaggeredViewAdapter.Sta
         this.maxWidth = maxWidth;
     }
 
-    StaggeredViewAdapter(LinkedHashMap<String, Uri> dataMap, int minHeight, int maxHeight, int maxWidth) {
+    StaggeredViewAdapter(List<StaggeredData> staggeredData, int minHeight, int maxHeight, int maxWidth) {
 
         this.minHeight = minHeight; this.maxHeight = maxHeight; this.maxWidth = maxWidth;
 
-        List<String> dataKeys = new ArrayList<>(dataMap.keySet());
-
-        int maxPos = dataKeys.size();
+        int maxPos = staggeredData.size();
 
         for(int pos=0; pos<maxPos; pos++){
 
             StaggeredDataModel staggeredDataModel = new StaggeredDataModel();
 
             StaggeredDataModel.ViewDataModel topViewData = new StaggeredDataModel.ViewDataModel();
-            topViewData.setTitle(dataKeys.get(pos));
-            topViewData.setImage(dataMap.get(dataKeys.get(pos)).toString());
+            topViewData.setTitle(staggeredData.get(pos).getTitle());
+            topViewData.setImage(staggeredData.get(pos).getImageUri());
             topViewData.setHeightPercent(getRandomHeight());
             staggeredDataModel.setTop(topViewData);
 
             try{
                 StaggeredDataModel.ViewDataModel bottomViewData = new StaggeredDataModel.ViewDataModel();
-                String keyBottom = dataKeys.get(pos+1);
-                bottomViewData.setTitle(keyBottom);
-                bottomViewData.setImage(dataMap.get(keyBottom).toString());
+                bottomViewData.setTitle(staggeredData.get(pos+1).getTitle());
+                bottomViewData.setImage(staggeredData.get(pos+1).getImageUri());
                 bottomViewData.setHeightPercent(100-topViewData.getHeightPercent());
                 staggeredDataModel.setBottom(bottomViewData);
             }catch (Exception e){
@@ -188,4 +185,5 @@ class StaggeredViewAdapter extends RecyclerView.Adapter<StaggeredViewAdapter.Sta
     private int pxToDp(float px) {
         return Math.round(px / (((float) Resources.getSystem().getDisplayMetrics().densityDpi) / 160.0f));
     }
+
 }
