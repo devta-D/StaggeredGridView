@@ -64,7 +64,7 @@ AppCompatActivity implements StaggeredItemClickListener{
 
 ## Methods:
 
-You may use the following methods in your activity to customize your AppTutorial.
+You may use the following methods in your code to customize your StaggeredGridView.
 
 *`staggeredGridView.setViewDimensions(min, max);` By using above method you can set staggered view minimum and maximum height and the total of both should be 100.
 
