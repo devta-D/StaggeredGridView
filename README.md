@@ -54,7 +54,7 @@ dependencies {
 To catch StaggeredGridView item click listener implement StaggeredItemClickListener into your Activity/Fragment as following:
 
 ```
-AppCompatActivity implements StaggeredItemClickListener{{
+AppCompatActivity implements StaggeredItemClickListener{
 
     @Override
     public void onStaggeredItemClick(StaggeredData item) {
