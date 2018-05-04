@@ -57,7 +57,7 @@ public class SampleActivity extends AppCompatActivity implements StaggeredItemCl
             @Override
             public void onClick(View v) {
                 if(staggeredDataList.size()==7){
-                    staggeredDataList.remove(7);
+                    staggeredDataList.remove(staggeredDataList.size()-1);
                 }else {
                     staggeredDataList.add(new StaggeredData(6, "Brandon",
                             "http://45.58.45.156:1080/e-commerce/brandone.png"));
