@@ -39,12 +39,12 @@ dependencies {
 
   List<StaggeredData> staggeredDataList = new ArrayList<>();
 
-  staggeredDataList.add(new StaggeredData(0, "Men", "http://45.58.45.156:1080/e-commerce/male.png"));
-  staggeredDataList.add(new StaggeredData(1, "Women", "http://45.58.45.156:1080/e-commerce/female.png"));
-  staggeredDataList.add(new StaggeredData(2, "Kids", "http://45.58.45.156:1080/e-commerce/kids.png"));
-  staggeredDataList.add(new StaggeredData(3, "Home", "http://45.58.45.156:1080/e-commerce/home.png"));
-  staggeredDataList.add(new StaggeredData(4, "Gadgets", "http://45.58.45.156:1080/e-commerce/gadgets.png"));
-  staggeredDataList.add(new StaggeredData(5, "Beauty", "http://45.58.45.156:1080/e-commerce/beauty.png"));
+  staggeredDataList.add(new StaggeredData(0, "Men", "image_url"));
+  staggeredDataList.add(new StaggeredData(1, "Women", "image_url"));
+  staggeredDataList.add(new StaggeredData(2, "Kids", "image_url"));
+  staggeredDataList.add(new StaggeredData(3, "Home", "image_url"));
+  staggeredDataList.add(new StaggeredData(4, "Gadgets", "image_url"));
+  staggeredDataList.add(new StaggeredData(5, "Beauty", "image_url"));
 
   staggeredGridView.setData(staggeredDataList);
   staggeredGridView.setClickListener(this);
