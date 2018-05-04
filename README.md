@@ -1,7 +1,7 @@
 # StaggeredGridView
 A RecyclerView that lays out children in a staggered grid formation.
 
-![StaggeredGridView](/one.gif)  ![StaggeredGridView](/two.gif)  ![StaggeredGridView](/three.gif)
+![StaggeredGridView](/zero.gif)  ![StaggeredGridView](/one.gif)  ![StaggeredGridView](/two.gif)  ![StaggeredGridView](/three.gif)
 
 To make a StaggeredGridView, add this StaggeredGridView library to your project and add StaggeredGridView in your layout XML. You can also grab it via Gradle:
 
