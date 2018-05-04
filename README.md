@@ -1,7 +1,7 @@
 # StaggeredGridView
 A RecyclerView that lays out children in a staggered grid formation.
 
-![StaggeredGridView](/one.gif)
+![StaggeredGridView](/one.gif)  ![StaggeredGridView](/two.gif)  ![StaggeredGridView](/three.gif)
 
 To make a StaggeredGridView, add this StaggeredGridView library to your project and add StaggeredGridView in your layout XML. You can also grab it via Gradle:
 
@@ -9,12 +9,12 @@ Gradle
 ------------
 Step 1. Add it in your root build.gradle at the end of repositories:
 ```groovy
-	allprojects {
-		repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
+allprojects {
+	repositories {
+		...
+		maven { url 'https://jitpack.io' }
 	}
+}
 ```
 Step 2. Add the dependency
 ```groovy
@@ -25,7 +25,15 @@ dependencies {
 
 # Usage
 --------
-java
+###XML
+```xml
+    <devta.staggeredview.StaggeredGridView
+        android:id="@+id/staggeredGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+```
+
+###java
 ``` 
   StaggeredGridView staggeredGridView = findViewById(R.id.staggeredGridView);
 
@@ -40,6 +48,18 @@ java
 
   staggeredGridView.setData(staggeredDataList);
   staggeredGridView.setClickListener(this);
+```
+
+# NOTE
+To catch StaggeredGridView item click listener implement StaggeredItemClickListener into your Activity/Fragment as following:
+
+```
+AppCompatActivity implements StaggeredItemClickListener{{
+
+    @Override
+    public void onStaggeredItemClick(StaggeredData item) {
+        //perform your action here
+    }
 ```
 
 ## Methods:
