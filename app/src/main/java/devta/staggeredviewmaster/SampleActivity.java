@@ -1,20 +1,20 @@
 package devta.staggeredviewmaster;
 
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Random;
 
 import devta.staggeredview.StaggeredData;
 import devta.staggeredview.StaggeredGridView;
+import devta.staggeredview.StaggeredItemClickListener;
 
-public class SampleActivity extends AppCompatActivity {
+public class SampleActivity extends AppCompatActivity implements StaggeredItemClickListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class SampleActivity extends AppCompatActivity {
         staggeredDataList.add(new StaggeredData(5, "Beauty", "http://45.58.45.156:1080/e-commerce/beauty.png"));
 
         staggeredGridView.setData(staggeredDataList);
+        staggeredGridView.setClickListener(this);
 
         Button button = findViewById(R.id.button);
         Button button2 = findViewById(R.id.button2);
@@ -69,5 +70,10 @@ public class SampleActivity extends AppCompatActivity {
     private int getRandomInt(){
         Random r = new Random();
         return r.nextInt( 300 - 120 + 1) + 120;
+    }
+
+    @Override
+    public void onStaggeredItemClick(StaggeredData item) {
+        Toast.makeText(this, "Clicked on : "+item.getTitle(), Toast.LENGTH_SHORT).show();
     }
 }

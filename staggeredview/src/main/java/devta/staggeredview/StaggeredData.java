@@ -1,6 +1,5 @@
 package devta.staggeredview;
 
-import android.net.Uri;
 import android.support.annotation.NonNull;
 
 /**

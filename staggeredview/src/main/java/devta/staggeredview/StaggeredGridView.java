@@ -1,15 +1,12 @@
 package devta.staggeredview;
 
 import android.content.Context;
-import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -20,6 +17,7 @@ public class StaggeredGridView extends LinearLayout {
 
     private RecyclerView mStaggeredRecyclerView;
     private List<StaggeredData> savedData;
+    private StaggeredItemClickListener listener;
 
     private int viewMinHeight, viewMaxHeight, viewMaxWidth;
 
@@ -69,15 +67,21 @@ public class StaggeredGridView extends LinearLayout {
     public void setData(List<StaggeredData> staggeredData){
         if(!isInEditMode() && mStaggeredRecyclerView!=null)
             mStaggeredRecyclerView.setAdapter(new StaggeredViewAdapter(
-                    staggeredData, viewMinHeight, viewMaxHeight, viewMaxWidth));
+                    staggeredData, viewMinHeight, viewMaxHeight, viewMaxWidth, listener));
         this.savedData = staggeredData;
+    }
+
+    public void setClickListener(StaggeredItemClickListener listener){
+        this.listener = listener;
+        if(mStaggeredRecyclerView!=null)
+            invalidate();
     }
 
     @Override
     public void invalidate() {
         super.invalidate();
         mStaggeredRecyclerView.setAdapter(new StaggeredViewAdapter(
-                savedData, viewMinHeight, viewMaxHeight, viewMaxWidth));
+                savedData, viewMinHeight, viewMaxHeight, viewMaxWidth, listener));
     }
 
 }

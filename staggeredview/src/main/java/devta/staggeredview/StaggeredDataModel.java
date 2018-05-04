@@ -25,25 +25,8 @@ class StaggeredDataModel {
 
     public static class ViewDataModel {
 
-        private String title;
-        private String image;
         private int heightPercent;
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public String getImage() {
-            return image;
-        }
-
-        public void setImage(String image) {
-            this.image = image;
-        }
+        private StaggeredData staggeredData;
 
         public int getHeightPercent() {
             return heightPercent;
@@ -51,6 +34,14 @@ class StaggeredDataModel {
 
         public void setHeightPercent(int heightPercent) {
             this.heightPercent = heightPercent;
+        }
+
+        public StaggeredData getStaggeredData() {
+            return staggeredData;
+        }
+
+        public void setStaggeredData(StaggeredData staggeredData) {
+            this.staggeredData = staggeredData;
         }
     }
 }
